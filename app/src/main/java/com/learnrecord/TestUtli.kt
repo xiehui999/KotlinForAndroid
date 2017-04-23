@@ -4,6 +4,7 @@ package com.learnrecord
  *Created by xiehui on 2017/4/21.
  */
 class TestUtli {
+    var people:People?=null
     /**
      * 注释1
      * 两种变量 val:只读变量，只能赋值一次
@@ -23,6 +24,7 @@ class TestUtli {
      */
     fun sum(a: Int, b: Int): Int {
         a3 += 2
+        people=People("1","Code4Android")
         return a + b
     }
 

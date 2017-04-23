@@ -1,9 +1,15 @@
 package com.learnrecord
 
 /**
+ * import导入类as设置别名
+ */
+import com.learnrecord.Student as People1
+
+/**
  *Created by Code4Android on 2017/4/22.
  */
 fun main(args: Array<String>) {
+
     println("Hello World!")
     var number: Int = 1000  //Int类型
     //判断是否对象或基础类型，可通过===来判断，若是对象，===表示比较地址，
@@ -51,10 +57,32 @@ fun main(args: Array<String>) {
 
     var index = 1
     var s2 = "the index is $index" //s的值为 the index is 1
+
     //当字符串中使用对象时，可以使用${index.属性}进行嵌入
-    data class User(var name:String)
-    var user:User=User("jason")
+    data class User(var name: String)
+
+    var user: User = User("jason")
     var description = "my name is ${user.name}"
 
     println(description)
+    var people: People? = null
+    people = People("1", "Code4Android")
+    var people1 = People1("2", "Code4Android")
+    print(people.name)
+    var aa: Int = 1
+    var bb: Int = 3
+
+    var valid = if (aa > bb) true else false //可达到三元运算符作用
+    //若if后是多个表达式，则返回值是最后一个表达式：
+
+    var valid1 = if (aa > bb) {
+        println(aa)
+        aa
+    } else {
+        println(bb)
+        //取消下面bb,运行会返回kotlin.Unit为无类型，返回值总是最后一个表达式或值
+        bb
+        5
+    }
+    print(valid1)
 }
