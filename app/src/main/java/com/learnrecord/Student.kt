@@ -9,19 +9,28 @@ package com.learnrecord
  */
 
 class Student(id: String, name: String) : People(id, name) {
-    var test:Number=3
+    var test: Number = 3
+    private var name1: String?
+        get() {
+            return name1
+        }
+        set(value) {
+            name1 = value
+        }
 
     override fun study() {
         super.study()
     }
-    fun beat(){
-        println("Int max value:"+Int.MAX_VALUE)
-        println("Int min value:"+Int.MIN_VALUE)
 
-        println("Byte max value:"+Byte.MAX_VALUE)
-        println("Byte max value:"+Byte.MAX_VALUE)
+    fun beat() {
+        println("Int max value:" + Int.MAX_VALUE)
+        println("Int min value:" + Int.MIN_VALUE)
+
+        println("Byte max value:" + Byte.MAX_VALUE)
+        println("Byte max value:" + Byte.MAX_VALUE)
         println("beat $name")
     }
+
     override fun drink() {
         super.drink()
     }
