@@ -1,8 +1,9 @@
-package com.learnrecord
+package com.learnrecord.file
 
 /**
  * import导入类as设置别名
  */
+import com.learnrecord.People
 import com.learnrecord.Student as People1
 
 /**
@@ -67,7 +68,7 @@ fun main(args: Array<String>) {
     println(description)
     var people: People? = null
     people = People("1", "Code4Android")
-    var people1 = People1("2", "Code4Android")
+    var people1 = com.learnrecord.Student("2", "Code4Android")
     print(people.name)
     var aa: Int = 1
     var bb: Int = 3
