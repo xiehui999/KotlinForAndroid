@@ -2,7 +2,12 @@ package com.learnrecord
 
 /**
  *Created by Code4Android on 2017/4/22.
- * Number类型：Float,Double,Int,Byte,Short,Char
+ * Number类型：Float（32）,Double（64）,Int（32）,Byte（8）,Short（16）
+ * 十进制: 123
+ * Long 类型用大写 L
+ * 标记: 123L
+ * 十六进制: 0x0F
+ * 二进制: 0b00001011
  * 当接口未实现方法时，默认为父类的方法,不需要调用所继承的方法
  * Kotlin中的抽象类允许有abstract修饰的成员方法，非抽象类不允许有抽象方法；
  * 抽象类默认是可被继承的，接口是特殊的抽象类，允许有抽象方法

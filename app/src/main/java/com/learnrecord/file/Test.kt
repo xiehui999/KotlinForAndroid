@@ -19,18 +19,24 @@ fun main(args: Array<String>) {
     var anotherBoxNumber: Int? = number //赋值，同上
     println(boxNumber === anotherBoxNumber)
     println(boxNumber == anotherBoxNumber)
-    //操作符  shl
+    //操作符  shl 下面对Int和Long
     var a: Int = 4
-    var shl: Int = a shl 1 //Java中的左移运算符 <<
-    var shr: Int = a shr 1  //Java中的右移运算符 >>
-    var ushr: Int = a ushr 3 //无符号右移，高位补0 >>>
-    var and: Int = 2 and 4   //按位与操作 &
-    var or: Int = 2 or 4  //按位或操作 |
-    var xor: Int = 2 xor 6  //按位异或操作 ^
+    var shl: Int = a shl (1)  //Java中的左移运算符 <<
+    var shr: Int = a shr (1) //Java中的右移运算符 >>
+    var ushr: Int = a ushr (3) //无符号右移，高位补0 >>>
+    var and: Int = 2 and (4)   //按位与操作 &
+    var or: Int = 2 or (4) //按位或操作 |
+    var xor: Int = 2 xor (6)  //按位异或操作 ^
     print("\nshl:" + shl + "\nshr:" + shr + " \nushr:" + ushr + "\nand：" + and + "\nor:" + or + "\nxor:" + xor)
+
+    //当下面使用Boolean
     //or() 相当于 ||
-    //and() 相当于 &&
+    //and() 相当于 &&.如果是Int则是按位与
     // xor() 当操作符两边都是相反时为true，否则为false
+    var isChange :Boolean= true
+    var isRead = false
+    println(isChange and (isRead))
+    println(1 and (3))
     var array = arrayOf(1, 2, 3, 4)
     val array1 = Array(3, { i -> (i * i).toString() })
     //intArrayOf(vararg elements: kotlin.Int): kotlin.IntArray
