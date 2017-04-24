@@ -34,4 +34,13 @@ class Student(id: String, name: String) : People(id, name) {
     override fun drink() {
         super.drink()
     }
+
+    //inner 同一个模块内，通过类来访问属性或者方法
+    inner class Teacher {
+        private var name: String = "teacher"
+
+        init {
+            name = ""
+        }
+    }
 }

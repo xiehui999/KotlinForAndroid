@@ -10,9 +10,9 @@ package com.learnrecord
  *
  *
  * private //仅在同一个文件中可见
- * protected //同一个文件中或子类可见
+ * protected //同一个文件中或子类可见,不可修饰类
  * public //所有调用的地方都可见
- * internal //同一个模块中可见
+ * internal //同一个模块中可见,若类不加修饰符，则默认为该修饰符，作用域为同一个应用的所有模块，起保护作用，防止模块外被调用。
  * constructor:构造函数
  * constructor无修饰符(如：private)时，constructor可以省略：
  * 当是无参构造函数时，整个构造函数部分也可以省略，省略的构造函数默认是public的
