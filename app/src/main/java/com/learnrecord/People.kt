@@ -20,23 +20,31 @@ package com.learnrecord
  * 同时可以在初始化代码块中使用构造函数的参数
  */
 //primary constructor
-open class People  constructor(var id: String, override var name: String) : Iwant1 {
+open class People constructor(var id: String, override var name: String) : Iwant1 {
     //可以类中初始化属性：
     var customName = name.toUpperCase() //初始化属性
+
     //使用constructor前缀声明，且必须调用primary constructor，使用this关键字
-    constructor(id:String,name:String, age:Int):this(id,name){
+    constructor(id: String, name: String, age: Int) : this(id, name) {
 
     }
+
     init {
         print("初始化操作，可使用constructor参数")
     }
+
     //需要open修饰，子类才可以
-    open fun study(){
+    open fun study() {
         print("study")
     }
+
     //override修饰的方法，默认是可以被继承的。若希望不被继承，可以使用 final 关键词修饰
     override fun drink() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
+   //,Kotlin的class并不支持static变量,所以需要使用companion object来声明static变量,
+   // 其实这个platformStatic变量也不是真正的static变量,而是一个伴生对象,
+    companion object {
+        val ID = 1
+    }
 }

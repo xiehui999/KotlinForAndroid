@@ -1,5 +1,6 @@
 package com.learnrecord.file
 
+import com.learnrecord.People
 import com.learnrecord.Student
 
 /**
@@ -95,6 +96,8 @@ fun main(arg: Array<String>) {
     //构造函数引用
     //只需要使用 :: 操作符并加上类名。下面的函数是一个没有参数并且返回类型是 Foo
     function(::Foo)
+    //companion object
+    People.ID
 }
 
 class Foo
