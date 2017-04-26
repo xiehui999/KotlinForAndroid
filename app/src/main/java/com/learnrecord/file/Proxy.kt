@@ -52,7 +52,7 @@ class Water {
     }
     public var value: String by Delegates.observable("init value") {
         d, old, new ->
-        println("$old->$new")
+        println("$d-->$old->$new")
     }
 }
 

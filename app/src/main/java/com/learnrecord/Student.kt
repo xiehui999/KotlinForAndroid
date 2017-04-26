@@ -2,7 +2,7 @@ package com.learnrecord
 
 /**
  *Created by Code4Android on 2017/4/22.
- * Number类型：Float（32）,Double（64）,Int（32）,Byte（8）,Short（16）
+ * Number类型：Long(64)Float（32）,Double（64）,Int（32）,Byte（8）,Short（16）
  * 十进制: 123
  * Long 类型用大写 L
  * 标记: 123L

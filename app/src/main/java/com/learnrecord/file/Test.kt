@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
     var and: Int = 2 and (4)   //按位与操作 &
     var or: Int = 2 or (4) //按位或操作 |
     var xor: Int = 2 xor (6)  //按位异或操作 ^
-    print("\nshl:" + shl + "\nshr:" + shr + " \nushr:" + ushr + "\nand：" + and + "\nor:" + or + "\nxor:" + xor)
+    println("\nshl:" + shl + "\nshr:" + shr + " \nushr:" + ushr + "\nand：" + and + "\nor:" + or + "\nxor:" + xor)
 
     //当下面使用Boolean
     //or() 相当于 ||
@@ -35,7 +35,10 @@ fun main(args: Array<String>) {
     // xor() 当操作符两边都是相反时为true，否则为false
     var isChange :Boolean= true
     var isRead = false
+    println(isChange.not())
+    println(isChange or (isRead))
     println(isChange and (isRead))
+    println(isChange xor (isRead))
     println(1 and (3))
     var array = arrayOf(1, 2, 3, 4)
     val array1 = Array(3, { i -> (i * i).toString() })
@@ -74,22 +77,22 @@ fun main(args: Array<String>) {
     println(description)
     var people: People? = null
     people = People("1", "Code4Android")
-    var people1 = com.learnrecord.Student("2", "Code4Android")
-    print(people.name)
+    var people1 = com.learnrecord.People("2", "Code4Android")
+    println(people.name)
     var aa: Int = 1
     var bb: Int = 3
 
     var valid = if (aa > bb) true else false //可达到三元运算符作用
     //若if后是多个表达式，则返回值是最后一个表达式：
 
-    var valid1 = if (aa > bb) {
-        println(aa)
-        aa
+    fun max1(a:Int,b:Int)= if (a > b) {
+        println(a)
+        a
     } else {
-        println(bb)
+        println(b)
         //取消下面bb,运行会返回kotlin.Unit为无类型，返回值总是最后一个表达式或值
-        bb
-        5
+        b
+
     }
-    print(valid1)
+    println(max1(4,3))
 }

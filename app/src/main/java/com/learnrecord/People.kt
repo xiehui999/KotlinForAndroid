@@ -25,12 +25,12 @@ open class People constructor(var id: String, override var name: String) : Iwant
     var customName = name.toUpperCase() //初始化属性
 
     //使用constructor前缀声明，且必须调用primary constructor，使用this关键字
-    constructor(id: String, name: String, age: Int) : this(id, name) {
-
+    constructor( id: String, name: String, age: Int) : this(id, name) {
+        println("constructor")
     }
 
     init {
-        print("初始化操作，可使用constructor参数")
+        println("初始化操作，可使用constructor参数")
     }
 
     //需要open修饰，子类才可以

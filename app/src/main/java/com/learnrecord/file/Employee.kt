@@ -21,10 +21,6 @@ class Employee(var name: String) {
  * 扩展函数并没有对原类做修改，而是为被扩展类的对象添加新的函数。
  * 有一条规则，若扩展函数和类原有函数一致，则使用该函数时，会优先使用类本身的函数。
  */
-//扩展函数
-fun Employee.print() {
-    print("print：Employee name is $name")
-}
 
 //扩展函数
 fun Employee.println() {

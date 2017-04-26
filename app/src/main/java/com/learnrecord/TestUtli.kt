@@ -4,7 +4,9 @@ package com.learnrecord
  *Created by xiehui on 2017/4/21.
  */
 class TestUtli {
+    var str:String=""
     var people:People?=null
+
     /**
      * 注释1
      * 两种变量 val:只读变量，只能赋值一次
@@ -29,7 +31,7 @@ class TestUtli {
     }
 
     /**
-     * 达式作为函数体，编译器推断返回类型的函数：
+     * 表达式作为函数体，编译器推断返回类型的函数：
      */
     fun sum1(a: Int, b: Int) = a + b
 
@@ -94,6 +96,7 @@ class TestUtli {
         for (i in array.indices) {
             println(array[i])
         }
+
     }
 
     /**
@@ -109,12 +112,12 @@ class TestUtli {
     /**
      * WHEN
      */
-    fun whenExp(obj: Any) {
+    fun whenFun(obj: Any) {
         when (obj) {
-            1 -> println("One")
-            "Hello,Kotlin" -> println("Hello,Kotlin")
-            is Long -> println("Number is Long")
+            25 -> println("25")
+            "Kotlin" -> println("Kotlin")
             !is String -> println("Not String")
+            is Long -> println("Number is Long")
             else -> println("Nothing")
         }
     }
@@ -123,4 +126,16 @@ class TestUtli {
             println("OK")
         }
     }
+
+}
+fun main(arg:Array<String>){
+    var t=TestUtli()
+    t.forIndices(arrayOf("3","3","3","3"))
+    t.whenFun(1L)
+    var people=People("11","22",22)
+    println(0b0011)
+
+    var name:String="Code4Android"
+    println("我的名字叫$name")
+    println("我的名字叫${name}")
 }

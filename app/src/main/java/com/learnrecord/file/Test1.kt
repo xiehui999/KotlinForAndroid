@@ -2,6 +2,8 @@ package com.learnrecord.file
 
 import com.learnrecord.People
 import com.learnrecord.Student
+import java.io.File
+import java.lang.reflect.Field
 
 /**
  *Created by Code4Android on 2017/4/23.
@@ -46,8 +48,8 @@ fun main(arg: Array<String>) {
         for (j in 0..3) {
             println("i:" + i + "  j:" + j)
             if (j == 2)
-            //continue@loop//跳到外层循环，继续往下执行
-                break@loop  //跳到外层循环label处，跳出改层循环
+            continue@loop//跳到外层循环，继续往下执行
+            //   break@loop  //跳到外层循环label处，跳出改层循环
         }
     }
     foo()
@@ -66,12 +68,13 @@ fun main(arg: Array<String>) {
         println(i)
     }
     //downTo倒序
-    for (i in 4 downTo 1) {
+    for (i in 5 downTo 0) {
         println(i)
     }
     //step
-    for (i in 1..4 step 2) print(i) // prints "13"
-    for (i in 4 downTo 1 step 2) print(i) // prints "42"
+    for (i in 1..5 step 3) print(i) // prints "14"
+    println()
+    for (i in 5 downTo 1 step 3) print(i) // prints "52"
 //反射得到运行时的类引用:
     val c = Student::class
     //函数引用
@@ -92,6 +95,10 @@ fun main(arg: Array<String>) {
     println(String::lastChar.get("abc")) // prints "c"
     //与 java 反射调用
     println(A::p.javaClass) // prints "public final int A.getP()"
+    var f: Array<Field> = A::p.javaClass.declaredFields
+    for (str in f){
+        println(str)
+    }
     println(A::p.javaClass.declaredFields) // prints "public final int A.getP()"
     //构造函数引用
     //只需要使用 :: 操作符并加上类名。下面的函数是一个没有参数并且返回类型是 Foo
