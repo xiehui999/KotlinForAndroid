@@ -36,8 +36,8 @@ fun main(arg: Array<String>) {
     //通过值可以推断出类型，也可以省略类型参数：
     var box1 = Box("")
     displayColor()
-    Place.showDetail()
-    MyClass.showDetail() // 访问内部单例对象方法
+    Singleton.doSomething()
+    MyClass.doSomething() // 访问内部单例对象方法
 
 }
 

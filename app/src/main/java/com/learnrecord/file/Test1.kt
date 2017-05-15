@@ -2,7 +2,6 @@ package com.learnrecord.file
 
 import com.learnrecord.People
 import com.learnrecord.Student
-import java.io.File
 import java.lang.reflect.Field
 
 /**
@@ -36,8 +35,14 @@ class UsersArray : Iterable<User> {
 
 var x = 1
 //主函数遍历数组
+var text: String? = null
+
 fun main(arg: Array<String>) {
     var usersArray: UsersArray = UsersArray()
+    //?和!!的区别
+    //!!处理方式是如果为null就抛出异常  ?:处理方式如果为空跳过此逻辑继续执行
+    //println(text!!.toInt())
+    println(text?.toInt())
 
     for (u in usersArray) {
         print("name:" + u.name)
@@ -48,7 +53,7 @@ fun main(arg: Array<String>) {
         for (j in 0..3) {
             println("i:" + i + "  j:" + j)
             if (j == 2)
-            continue@loop//跳到外层循环，继续往下执行
+                continue@loop//跳到外层循环，继续往下执行
             //   break@loop  //跳到外层循环label处，跳出改层循环
         }
     }
@@ -96,7 +101,7 @@ fun main(arg: Array<String>) {
     //与 java 反射调用
     println(A::p.javaClass) // prints "public final int A.getP()"
     var f: Array<Field> = A::p.javaClass.declaredFields
-    for (str in f){
+    for (str in f) {
         println(str)
     }
     println(A::p.javaClass.declaredFields) // prints "public final int A.getP()"
