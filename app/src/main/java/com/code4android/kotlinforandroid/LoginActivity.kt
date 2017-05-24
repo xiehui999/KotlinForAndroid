@@ -16,6 +16,7 @@ import org.jetbrains.anko.*
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //如果使用xml布局，想直接用用控件，不findId,需要导入import kotlinx.android.synthetic.main.activity_login.*
         //setContentView(R.layout.activity_login)
         LoginUi().setContentView(this@LoginActivity)
     }
