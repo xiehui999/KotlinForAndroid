@@ -2,148 +2,32 @@ package com.code4android.kotlinforandroid
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.code4android.data.Goods
-import com.code4android.net.NetRequest.getGoods
-import com.code4android.net.NetRequest.getGoodsObservable
-import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Function3
-import io.reactivex.schedulers.Schedulers
+import com.code4android.keyboard.KeyBoardDemoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.*
 
-
-/**
- * :继承的意思
- * fun：函数定义的关键字
- * 变量名称写在了类型前面
- */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        merge.setOnClickListener(this)
-        contact.setOnClickListener(this)
-        zip.setOnClickListener(this)
-        callBack.setOnClickListener(this)
+        btn_rx_java.setOnClickListener(this)
+        btn_keyboard.setOnClickListener(this)
     }
 
-    fun executeMerge() {
-        Observable.merge(getGoodsObservable(1).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(2).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(3).subscribeOn(Schedulers.newThread()))
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .toList()
-                .subscribe({
-                    Log.e(TAG, it.toString())
-                }, {
-                    Log.e(TAG, it.toString())
-                })
-
-/*               //或者
-                   .subscribe(object : SingleObserver<List<Goods>> {
-                    override fun onSubscribe(d: Disposable?) {
-                    }
-                    override fun onError(e: Throwable?) {
-                    }
-                    override fun onSuccess(t: List<Goods>?) {
-                    }
-                })*/
-    }
-
-    fun executeContact() {
-        Observable.concat(getGoodsObservable(1).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(2).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(3).subscribeOn(Schedulers.newThread()))
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .toList()
-                .subscribe({
-                    Log.e(TAG, it.toString())
-                }, {
-                    Log.e(TAG, it.toString())
-                })
-    }
-
-    fun executeZip() {
-        Observable.zip(getGoodsObservable(1).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(2).subscribeOn(Schedulers.newThread()),
-                getGoodsObservable(3).subscribeOn(Schedulers.newThread()),
-                Function3<Goods, Goods, Goods, List<Goods>>
-                { goods0, goods1, goods2 ->
-                    val list = ArrayList<Goods>()
-                    list.add(goods0)
-                    list.add(goods1)
-                    list.add(goods2)
-                    list
-                }).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.e(TAG, it.toString())
-                }, {
-                    Log.e(TAG, it.toString())
-                })
-    }
-
-    fun executeZipCallBack() {
-        Observable.zip(getGoodsCallBack(1).subscribeOn(Schedulers.newThread()),
-                getGoodsCallBack(2).subscribeOn(Schedulers.newThread()),
-                getGoodsCallBack(3).subscribeOn(Schedulers.newThread()),
-                Function3<Goods, Goods, Goods, List<Goods>>
-                { goods0, goods1, goods2 ->
-                    val list = ArrayList<Goods>()
-                    list.add(goods0)
-                    list.add(goods1)
-                    list.add(goods2)
-                    list
-                }).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.e(TAG, it.toString())
-                }, {
-                    Log.e(TAG, it.toString())
-                })
-    }
-
-    fun getGoodsCallBack(id: Int): Observable<Goods> {
-        var subscrbe: ObservableEmitter<Goods>? = null
-        var o = Observable.create<Goods> {
-            subscrbe = it
-        }
-        getGoods(this@MainActivity, id) {
-            subscrbe?.onNext(it)
-        }
-        return o
-    }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.merge -> {
-                executeMerge()
-            }
-            R.id.contact -> {
-                executeContact()
-            }
-            R.id.zip -> {
-                executeZip()
-            }
-            R.id.callBack->{
-                executeZipCallBack()
-            }
-        }
-        //或者这样写
         when (v) {
-            merge -> {
+            btn_rx_java -> {
+                startActivity<RxJavaActivity>()
+            }
+            btn_keyboard->{
+                startActivity<KeyBoardDemoActivity>()
             }
         }
     }

@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var et_account: EditText
     lateinit var et_password: EditText
+
     inner class LoginUi : AnkoComponent<LoginActivity> {
         override fun createView(ui: AnkoContext<LoginActivity>) = with(ui) {
             verticalLayout {
@@ -82,8 +83,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     background = resources.getDrawable(R.drawable.bg_login_btn)
                     textColor = Color.parseColor("#ffffff")
                     onClick {
-                        if (et_account.text.toString().isNotEmpty() && et_password.text.toString().isNotEmpty())
-                            startActivity<MainActivity>("account" to et_account.text.toString(),"password" to et_password.text.toString()) else toast("请输入账户或者密码")
+                        //                        if (et_account.text.toString().isNotEmpty() && et_password.text.toString().isNotEmpty())
+                        startActivity<MainActivity>("account" to et_account.text.toString(), "password" to et_password.text.toString()) //else toast("请输入账户或者密码")
                     }
                 }.lparams(width = dip(300), height = dip(44)) {
                     topMargin = dip(18)

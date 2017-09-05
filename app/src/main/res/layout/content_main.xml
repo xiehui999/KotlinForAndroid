@@ -10,30 +10,16 @@
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/merge"
+        android:id="@+id/btn_rx_java"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="merge" />
+        android:text="RxJava多数据源merge,contact" />
 
     <Button
-        android:id="@+id/contact"
+        android:id="@+id/btn_keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="contact" />
-    <Button
-        android:id="@+id/callBack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="callBack" />
-    <Button
-        android:id="@+id/zip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ZIP" />
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1111111" />
+        android:text="自定义键盘" />
+
 
 </LinearLayout>

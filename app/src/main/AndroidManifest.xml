@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".RxJavaActivity" />
+        <activity android:name="com.code4android.keyboard.KeyBoardDemoActivity"></activity>
     </application>
 
 </manifest>
