@@ -20,7 +20,40 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="1" />
+
+            <EditText
+                android:id="@+id/et_keyboard2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="2" />
+
+            <EditText
+                android:id="@+id/et_keyboard3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="3" />
+
+            <include layout="@layout/keyboardview" />
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

@@ -7,37 +7,38 @@ import android.inputmethodservice.Keyboard
 import android.inputmethodservice.KeyboardView
 import android.util.AttributeSet
 import com.code4android.kotlinforandroid.R
-import kotlinx.android.synthetic.main.content_main.*
 
 /**
  *Created by Code4Android on 2017/9/5.
  */
 class CustomKeyboardView : KeyboardView {
-    lateinit var mKeyBoard: Keyboard
+    private var mKeyBoard: Keyboard? = null
 
-    constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0) {}
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        //暂时没有自定义属性扩展
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+        //
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        mKeyBoard = keyboard
+        mKeyBoard = this.keyboard
         var keys: MutableList<Keyboard.Key>? = null
         if (mKeyBoard != null) {
-            keys = mKeyBoard.keys
+            keys = mKeyBoard!!.keys
         }
-
         if (keys != null) {
             for (key in keys) {
-                if (key.codes[0] == -4) {
-                    drawBackground(R.color.btnnormal, canvas, key)
-                    drawText(canvas, key)
+                //可以自定义自己的绘制（例如某个按钮绘制背景图片和文字，亦或者更改某个按钮颜色等）
+                if (key.codes[0] == Keyboard.KEYCODE_CANCEL) {
+/*                    drawBackground(R.color.btnnormal, canvas, key)
+                    drawText(canvas, key)*/
                 }
             }
         }
     }
 
+    //绘制文字
     fun drawText(canvas: Canvas, key: Keyboard.Key) {
         var bounds = Rect()
         var paint = Paint()
@@ -46,12 +47,16 @@ class CustomKeyboardView : KeyboardView {
         paint.textAlign = Paint.Align.CENTER
         paint.typeface = Typeface.DEFAULT
         if (key.label != null) {
-
+            var label = key.label.toString()
+            paint.getTextBounds(label, 0, label.length, bounds)
+            canvas.drawText(label, (key.x + key.width / 2).toFloat(), (key.y + key.height / 2 + bounds.height() / 2).toFloat(), paint)
         } else if (key.icon != null) {
-
+            key.icon.bounds = Rect(key.x + (key.width - key.icon.intrinsicWidth) / 2, key.y + (key.height - key.icon.intrinsicHeight) / 2, key.x + (key.width - key.icon.intrinsicWidth) / 2 + key.icon.intrinsicWidth, key.y + (key.height - key.icon.intrinsicHeight) / 2 + key.icon.intrinsicHeight)
+            key.icon.draw(canvas)
         }
     }
 
+    //绘制背景
     fun drawBackground(color: Int, canvas: Canvas, key: Keyboard.Key) {
         var colorDraw = ColorDrawable(color)
         colorDraw.bounds = Rect(key.x, key.y, key.x + key.width, key.height + key.y)

@@ -7,4 +7,7 @@
     <color name="btnpressed">#FF106EE9</color>
     <color name="btnnormal">#108EE9</color>
     <color name="btninvalid">#66ccf5</color>
+    <color name="keyborad_line_color">#bfbfbf</color>
+    <color name="bg_keyborad_color_normal">#fff</color>
+    <color name="bg_keyborad_color_press">#eee</color>
 </resources>

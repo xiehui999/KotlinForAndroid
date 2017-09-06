@@ -20,42 +20,48 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/merge"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="merge" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="contact" />
+            <Button
+                android:id="@+id/merge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="merge" />
 
-        <Button
-            android:id="@+id/callBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="callBack" />
+            <Button
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="contact" />
 
-        <Button
-            android:id="@+id/zip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ZIP" />
+            <Button
+                android:id="@+id/callBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="callBack" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1111111" />
+            <Button
+                android:id="@+id/zip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ZIP" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1111111" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
