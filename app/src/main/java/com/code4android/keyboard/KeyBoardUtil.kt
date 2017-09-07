@@ -57,6 +57,7 @@ class KeyBoardUtil {
         lp.gravity = Gravity.BOTTOM
         frameLayout.addView(mKeyBoardViewContainer, lp)
         mKeyBoardView = mKeyBoardViewContainer.find(R.id.keyboard_view)
+        mKeyBoardView.setOnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_BACK) {
                 if (mKeyBoardView.visibility == View.VISIBLE) {
                     mKeyBoardView.visibility = View.GONE
