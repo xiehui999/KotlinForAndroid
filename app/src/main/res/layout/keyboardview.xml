@@ -1,14 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+background：整个键盘的背景色
+keyBackground   :设置键的背景
+keyPreviewHeight:预览高度
+keyPreviewLayout   :设置预览布局
+keyPreviewOffset :设置反馈的垂直偏移量
+keyTextColor    ：设置key标签文字颜色
+keyTextSize:设置key标签字体大小
+labelTextSize:设置带文本和图标的键上个的文本的小大
+
+-->
 <com.code4android.keyboard.CustomKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/keyboard_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/keyborad_line_color"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:keyBackground="@drawable/bg_keyboardview"
+    android:keyPreviewHeight="35dp"
+    android:keyPreviewLayout="@layout/keyboard_key_preview"
     android:keyPreviewOffset="0dp"
     android:keyTextColor="#8a8a8a"
+    android:keyTextSize="18sp"
+    android:labelTextSize="18sp"
     android:paddingTop="0dp"
     android:shadowColor="#fff"
     android:shadowRadius="0.0" />

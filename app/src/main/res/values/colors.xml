@@ -9,5 +9,5 @@
     <color name="btninvalid">#66ccf5</color>
     <color name="keyborad_line_color">#bfbfbf</color>
     <color name="bg_keyborad_color_normal">#fff</color>
-    <color name="bg_keyborad_color_press">#eee</color>
+    <color name="bg_keyborad_color_press">#FF106EE9</color>
 </resources>

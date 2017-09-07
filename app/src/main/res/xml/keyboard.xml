@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+isRepeatable:长按时是否重复这个操作
+-->
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="1px"
     android:keyHeight="9%p"
@@ -7,7 +9,6 @@
     <Row android:keyHeight="6%p">
         <Key
             android:codes="-3"
-            android:keyLabel="关闭"
             android:keyIcon="@drawable/hidden"
             android:keyWidth="100%" />
     </Row>
