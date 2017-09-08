@@ -4,11 +4,11 @@ import android.app.Activity
 import android.inputmethodservice.Keyboard
 import android.inputmethodservice.KeyboardView
 import android.os.Build
+import android.os.Vibrator
 import android.text.Editable
 import android.text.InputType
 import android.util.Log
 import android.view.Gravity
-import android.view.KeyEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 import com.code4android.kotlinforandroid.R
 import org.jetbrains.anko.find
 import org.jetbrains.anko.inputMethodManager
+import org.jetbrains.anko.vibrator
 import java.lang.RuntimeException
 import java.lang.reflect.Method
 import java.util.*
@@ -34,7 +35,6 @@ class KeyBoardUtil {
     var mEditText: EditText? = null
     val TAG = "Keyboard"
     var mOnOkClick: OnOkClick? = null
-    var mOnCancelClick: OnCancelClick? = null
     var mIsDouble = false
 
     constructor(activity: Activity) : this(activity, true, false)
@@ -107,10 +107,6 @@ class KeyBoardUtil {
         mOnOkClick = onOkClick
     }
 
-    fun setOnCancelClick(onCancelClick: OnCancelClick) {
-        mOnCancelClick = onCancelClick
-    }
-
     private fun showSoftKeyboard() {
         if (mIsRandom) {
             generateRandomKey()
@@ -158,7 +154,8 @@ class KeyBoardUtil {
         override fun onPress(primaryCode: Int) {
             Log.e(TAG, "onPress")
             //指定隐藏删除不显示预览
-            mKeyBoardView.isPreviewEnabled = !(primaryCode == Keyboard.KEYCODE_CANCEL || primaryCode == Keyboard.KEYCODE_DELETE)
+            mActivity.applicationContext.vibrator.vibrate(50)
+            mKeyBoardView.isPreviewEnabled = !(primaryCode == Keyboard.KEYCODE_DONE || primaryCode == Keyboard.KEYCODE_DELETE)
         }
 
         override fun onRelease(primaryCode: Int) {
@@ -195,10 +192,10 @@ class KeyBoardUtil {
                         } else {
                         }
                     }
-                    Keyboard.KEYCODE_CANCEL -> {
+                    Keyboard.KEYCODE_DONE -> {
                         hideSoftKeyboard()
-                        mOnCancelClick?.let {
-                            it.onCancelClick()
+                        mOnOkClick?.let {
+                            it.onOkClick()
                         }
                     }
                     else -> {
