@@ -22,6 +22,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".RxJavaActivity" />
         <activity android:name="com.code4android.keyboard.KeyBoardDemoActivity"></activity>
-    </application>
 
+    </application>
+    <uses-permission android:name="android.permission.VIBRATE" />
 </manifest>
