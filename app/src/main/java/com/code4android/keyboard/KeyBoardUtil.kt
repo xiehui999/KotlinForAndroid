@@ -6,7 +6,6 @@ import android.inputmethodservice.KeyboardView
 import android.os.Build
 import android.text.Editable
 import android.text.InputType
-import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
 import android.view.KeyEvent
@@ -57,22 +56,11 @@ class KeyBoardUtil {
         lp.gravity = Gravity.BOTTOM
         frameLayout.addView(mKeyBoardViewContainer, lp)
         mKeyBoardView = mKeyBoardViewContainer.find(R.id.keyboard_view)
-        mKeyBoardView.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_BACK) {
-                if (mKeyBoardView.visibility == View.VISIBLE) {
-                    mKeyBoardView.visibility = View.GONE
-                    startAnimation(false)
-                    true
-                }
-                false
-            }
-            false
-        }
     }
 
     fun attachTo(editText: EditText) {
         if (editText !is EditText) throw RuntimeException("Type error")
-        if (mEditText != null && mEditText == editText) return
+        if (mEditText != null && mEditText == editText && mKeyBoardView.visibility == View.VISIBLE) return
         mEditText = editText
         Log.e(TAG, "attachTo")
         onFoucsChange()
@@ -99,7 +87,6 @@ class KeyBoardUtil {
                 startAnimation(true)
             }
         }
-
     }
 
     private fun hideSystemSoftKeyboard() {
@@ -133,6 +120,7 @@ class KeyBoardUtil {
         mKeyBoardView.isEnabled = true
         mKeyBoardView.isPreviewEnabled = true
         mKeyBoardView.visibility = View.VISIBLE
+        startAnimation(true)
         mKeyBoardView.setOnKeyboardActionListener(mOnKeyboardActionListener())
     }
 
@@ -250,12 +238,15 @@ class KeyBoardUtil {
         }
     }
 
-    fun hideSoftKeyboard() {
+    fun hideSoftKeyboard(): Boolean {
+        if (mEditText == null) return false
         var visibility = mKeyBoardView.visibility
         if (visibility == View.VISIBLE) {
             startAnimation(false)
             mKeyBoardView.visibility = View.GONE
+            return true
         }
+        return false
     }
 
     fun startAnimation(isIn: Boolean) {
