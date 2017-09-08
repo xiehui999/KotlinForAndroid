@@ -3,12 +3,12 @@ isRepeatable:长按时是否重复这个操作
 -->
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="1px"
-    android:keyHeight="9%p"
+    android:keyHeight="7%p"
     android:keyWidth="33.33%p"
     android:verticalGap="1px">
     <Row android:keyHeight="6%p">
         <Key
-            android:codes="-3"
+            android:codes="-4"
             android:keyIcon="@drawable/hidden"
             android:keyWidth="100%" />
     </Row>
