@@ -14,6 +14,8 @@ isRepeatable:长按时是否重复这个操作
     </Row>
     <Row>
         <Key
+            android:iconPreview="@mipmap/ic_launcher"
+            android:keyOutputText="11"
             android:codes="49"
             android:keyLabel="1" />
         <Key
