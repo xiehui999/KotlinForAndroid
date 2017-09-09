@@ -10,7 +10,6 @@ labelTextSize:设置带文本和图标的键上个的文本的小大
 
 -->
 <com.code4android.keyboard.CustomKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/keyboard_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

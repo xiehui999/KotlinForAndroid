@@ -12,7 +12,7 @@ import android.util.AttributeSet
 class CustomKeyboardView : KeyboardView {
     private var mKeyBoard: Keyboard? = null
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : this(context, attrs,0) {}
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
         //
@@ -66,7 +66,7 @@ class CustomKeyboardView : KeyboardView {
         var drawable = resources.getDrawable(drawableId)
         var drawableState: IntArray = key.currentDrawableState
         if (key.codes[0] != 0) {
-            drawable.setState(drawableState)
+            drawable.state=drawableState
         }
         drawable.bounds = Rect(key.x, key.y, key.x + key.width, key.height + key.y)
         drawable.draw(canvas)

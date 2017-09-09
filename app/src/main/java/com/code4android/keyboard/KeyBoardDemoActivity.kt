@@ -16,13 +16,14 @@ class KeyBoardDemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_key_board_demo)
         setSupportActionBar(toolbar)
         keyboardUtli = KeyBoardUtil(this@KeyBoardDemoActivity)
-
         et_keyboard.setOnTouchListener { v, event ->
             keyboardUtli?.attachTo(et_keyboard)
+            keyboardUtli?.mIsDecimal = true
             false
         }
         et_keyboard2.setOnTouchListener { v, event ->
             keyboardUtli?.attachTo(et_keyboard2)
+            keyboardUtli?.mIsDecimal = false
             false
         }
     }

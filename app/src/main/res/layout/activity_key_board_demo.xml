@@ -35,13 +35,13 @@
                 android:id="@+id/et_keyboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="1" />
+                android:hint="可以输入小数" />
 
             <EditText
                 android:id="@+id/et_keyboard2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="2" />
+                android:hint="只能输入整数" />
 
             <EditText
                 android:id="@+id/et_keyboard3"
