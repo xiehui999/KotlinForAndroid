@@ -6,9 +6,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.code4android.keyboard.KeyBoardDemoActivity
+import com.code4android.kotlinforandroid.behavior.BehaviorDemoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(toolbar)
         btn_rx_java.setOnClickListener(this)
         btn_keyboard.setOnClickListener(this)
+        btn_behavior.setOnClickListener(this)
     }
 
 
@@ -26,8 +28,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             btn_rx_java -> {
                 startActivity<RxJavaActivity>()
             }
-            btn_keyboard->{
+            btn_keyboard -> {
                 startActivity<KeyBoardDemoActivity>()
+            }
+            btn_behavior -> {
+                startActivity<BehaviorDemoActivity>()
             }
         }
     }

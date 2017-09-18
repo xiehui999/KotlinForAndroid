@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.code4android.kotlinforandroid.MainActivity">
+
+    <Button
+        android:id="@+id/depentent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|left"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="depentent"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|right"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="auto"
+        android:textColor="@android:color/white"
+        app:layout_behavior="com.code4android.kotlinforandroid.behavior.DepententBehavior" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorPrimary"
+                android:text="left1" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorPrimary"
+                android:text="left2" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorPrimary"
+                android:text="left3" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorPrimary"
+                android:text="left4" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorPrimary"
+                android:text="left5" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.code4android.kotlinforandroid.behavior.ScrollBehavior"
+        android:layout_gravity="right">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorAccent"
+                android:text="right1" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorAccent"
+                android:text="right2" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorAccent"
+                android:text="right3" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorAccent"
+                android:text="right4" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorAccent"
+                android:text="right5" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
