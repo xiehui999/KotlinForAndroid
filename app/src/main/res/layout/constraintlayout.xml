@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?><!--layout_constraintLeft_toRightOf:当前属性的左侧在谁的右侧
+类似：layout_constraintRight_toLeftOf
+layout_constraintRight_toRightOf
+layout_constraintTop_toTopOf
+layout_constraintTop_toBottomOf
+layout_constraintBottom_toTopOf  当前元素下面在某控件上边对齐
+layout_constraintBottom_toBottomOf  当前元素下面和某控件的下面对齐
+layout_constraintBaseline_toBaselineOf
+layout_constraintDimensionRatio：设置宽高比,例如值16:8(宽高比，和H,16:6作用相同)，W,16:6时为高和宽的比
+
+在ConstraintLayout中0代表：MATCH_CONSTRAINT，在协调布局中不再支持MATCH_PARENT,在当控件有自己设置的宽度，
+例如warp_content、固定值时，我们为控件添加的都是约束“Constraint”，这个约束有点像橡皮筋一样会拉这个控件，
+但是并不会改变控件的尺寸（RL很明显不是这样的）。
+layout_constraintHorizontal_weight:layout_constraintVertical_weight设置权重，类似线性布局权重
+
+layout_constraintHorizontal_chainStyle:设置链的样式
+spread+宽度非0：展示为指定宽度，间隔等分
+spread+宽度0：等分宽度（若设置权重按比例展示宽度），无间隔
+packed+宽度为非0:都靠中间显示，两边间距平分
+spread_inside + 宽度非0：显示指定宽度，两头靠边显示，中间间隔等分
+
+layout_constraintHorizontal_bias:控制两侧的“拉力”，哪个大一些
+
+android.support.constraint.Guideline:不显示，只用作辅助线定位
+layout_constraintGuide_begin（如50dp），layout_constraintGuide_end，layout_constraintGuide_percent（百分0.8即80%）设置位置
+orientation：指定辅助线时水平还是垂直
+-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/btnnormal"
+        android:gravity="center"
+        android:text="Banner"
+        app:layout_constraintDimensionRatio="H,16:6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="140dp"
+        android:layout_height="86dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="12dp"
+        android:text="自从在去年的 Google I/O 大会上发布 ConstraintLayout 以来，我们一直不断改进该布局的稳定性，完善对布局编辑器的支持"
+        app:layout_constraintLeft_toRightOf="@id/tv1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+
+        android:text="2017-09-05"
+        app:layout_constraintBottom_toBottomOf="@+id/tv1"
+        app:layout_constraintLeft_toRightOf="@+id/tv1" />
+
+
+    <TextView
+        android:id="@+id/tab1"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/btnnormal"
+        android:gravity="center"
+        android:text="tab1"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tab2" />
+
+    <TextView
+        android:id="@+id/tab2"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="tab2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toRightOf="@+id/tab1"
+        app:layout_constraintRight_toLeftOf="@+id/tab3" />
+
+    <TextView
+        android:id="@+id/tab3"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/btnnormal"
+        android:gravity="center"
+        android:text="tab3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tab2"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="Guide"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_v" />
+</android.support.constraint.ConstraintLayout>
