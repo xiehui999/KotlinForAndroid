@@ -13,7 +13,7 @@ import android.widget.EditText
 import android.widget.LinearLayout.HORIZONTAL
 import org.jetbrains.anko.*
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //如果使用xml布局，想直接用用控件，不findId,需要导入import kotlinx.android.synthetic.main.activity_login.*
@@ -82,9 +82,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     gravity = Gravity.CENTER
                     background = resources.getDrawable(R.drawable.bg_login_btn)
                     textColor = Color.parseColor("#ffffff")
-                    onClick {
+                    setOnClickListener {
                         //                        if (et_account.text.toString().isNotEmpty() && et_password.text.toString().isNotEmpty())
                         startActivity<MainActivity>("account" to et_account.text.toString(), "password" to et_password.text.toString()) //else toast("请输入账户或者密码")
+
                     }
                 }.lparams(width = dip(300), height = dip(44)) {
                     topMargin = dip(18)
@@ -132,7 +133,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     val name = editText("EditText")
                     button("Button") {
-                        onClick { view ->
+                        setOnClickListener {
                             click()
                         }
                     }
@@ -153,9 +154,5 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View) {
-        when (v.id) {
-        }
-    }
 }
 
