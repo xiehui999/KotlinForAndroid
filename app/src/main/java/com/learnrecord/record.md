@@ -82,4 +82,12 @@ loop@ for (i in 1..100) {
     }
 }
 ```
+- 可见性修饰
+```
+在 Kotlin 中有这四个可见性修饰符：
+private   它只会在声明它的文件内可见
+protected 不适用于顶层声明。private一样 + 在子类中可见
+internal  它会在相同模块内随处可见
+public   （默认可见性）
+```
 
